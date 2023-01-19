@@ -1,0 +1,106 @@
+{
+	"info": {
+		"_postman_id": "3fda603f-a003-4811-9777-0ddb9f905fce",
+		"name": "CSC560",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "25409674-3fda603f-a003-4811-9777-0ddb9f905fce"
+	},
+	"item": [
+		{
+			"name": "addUser",
+			"id": "ef568eef-39e8-449e-b5cf-f57560c22c60",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "user = {\n   \"user4\" : {\n      \"name\" : \"mohit\",\n      \"password\" : \"password4\",\n      \"profession\" : \"teacher\",\n      \"id\": 4\n   }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/addUser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"addUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listUser",
+			"id": "74cf1b98-6a88-4f33-86ea-d7fb7cfaa5df",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8081/listUsers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"listUsers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteUser",
+			"id": "ce249455-c5d8-41fc-b8ab-fc6f0275b244",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "var express = require('express');\nvar app = express();\nvar fs = require(\"fs\");\n\nvar id = 2;\n\napp.delete('/deleteUser', function (req, res) {\n   // First read existing users.\n   fs.readFile( __dirname + \"/\" + \"users.json\", 'utf8', function (err, data) {\n      data = JSON.parse( data );\n      delete data[\"user\" + 2];\n       \n      console.log( data );\n      res.end( JSON.stringify(data));\n   });\n})\n\nvar server = app.listen(8081, function () {\n   var host = server.address().address\n   var port = server.address().port\n   console.log(\"Example app listening at http://%s:%s\", host, port)\n})"
+				},
+				"url": {
+					"raw": "http://localhost:8081/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ID",
+			"id": "45ec1a5e-e5ce-4750-9ee5-57d203456022",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	]
+}
