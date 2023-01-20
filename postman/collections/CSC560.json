@@ -71,17 +71,17 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "var express = require('express');\nvar app = express();\nvar fs = require(\"fs\");\n\nvar id = 2;\n\napp.delete('/deleteUser', function (req, res) {\n   // First read existing users.\n   fs.readFile( __dirname + \"/\" + \"users.json\", 'utf8', function (err, data) {\n      data = JSON.parse( data );\n      delete data[\"user\" + 2];\n       \n      console.log( data );\n      res.end( JSON.stringify(data));\n   });\n})\n\nvar server = app.listen(8081, function () {\n   var host = server.address().address\n   var port = server.address().port\n   console.log(\"Example app listening at http://%s:%s\", host, port)\n})"
+					"raw": "var express = require('express');\nvar app = express();\nvar fs = require(\"fs\");\n\nvar id = 2;\n\napp.delete('/deleteUser', function (req, res) {\n   // First read existing users.\n   fs.readFile( __dirname + \"/\" + \"users.json\", 'utf8', function (err, data) {\n      data = JSON.parse( data );\n      delete data[\"user\" + 3];\n       \n      console.log( data );\n      res.end( JSON.stringify(data));\n   });\n})\n\nvar server = app.listen(8081, function () {\n   var host = server.address().address\n   var port = server.address().port\n   console.log(\"Example app listening at http://%s:%s\", host, port)\n})"
 				},
 				"url": {
-					"raw": "http://localhost:8081/2",
+					"raw": "http://localhost:8081/deleteUser",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8081",
 					"path": [
-						"2"
+						"deleteUser"
 					]
 				}
 			},
